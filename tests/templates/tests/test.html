@@ -1,0 +1,36 @@
+<div id="test-name">
+    {% block test-name %}
+        <h1>Test: {{ test.name }}</h1>
+    {% endblock %}
+</div>
+
+<form action="{% url 'tests:process-page' test.id page.id next_page_id %}" method="post">
+    {% csrf_token %}
+
+    <div id="page-content">
+        {% block page-content %}{% endblock %}
+    </div>
+
+    <div id="page-navigation">
+    <span class="step-links">
+{#            {% if prev_page_id %}#}
+{#                <a href="{%  url 'tests:test' test.id prev_page_id%}">Previous </a>#}
+{#                <input type="submit" value="Previous" />#}
+{#            {% endif %}#}
+
+            <span class="current">
+                Page {{ page_index }} of {{ total_pages }}
+            </span>
+
+        {% if next_page_id %}
+{#            <a href="{% url 'tests:test' test.id next_page_id %}"> Next</a>#}
+            <input type="submit" value="Next"/>
+        {% else %}
+            <input type="submit" value="Finish test"/>
+        {% endif %}
+
+
+        </span>
+    </div>
+
+</form>

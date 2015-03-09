@@ -1,0 +1,17 @@
+<h1>Test results for {{ result.test.name }}</h1>
+
+<ol>
+    {% for question, answers in questions_with_answers %}
+        <li>
+            <h3>Question: {{ question }}</h3>
+            <ul>
+                {% for answer, correct in answers %}
+                    <li>
+                        <p>Answer: {{ answer }}</p>
+                        <p>Correct? {{ correct }}</p>
+                    </li>
+                {% endfor %}
+            </ul>
+        </li>
+    {% endfor %}
+</ol>

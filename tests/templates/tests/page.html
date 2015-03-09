@@ -1,0 +1,21 @@
+{#{% extends "base.html" %}#}
+
+{% block content %}
+    <h2>Page: {{ page.description }}, index: </h2>
+
+{#    <ol>#}
+{#      {% for question in page.questions%}#}
+{#          <li>#}
+{#            <div>{{ question.text }}</div>#}
+{#            {% for answer in question.answers %}#}
+{#                <span>#}
+{#                <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ answer.id }}" />#}
+{#                <label for="choice{{ forloop.counter }}">{{ answer.text }}</label><br />#}
+{#                </span>#}
+{#            {% endfor %}#}
+{#          </li>#}
+{#        <li>{{ question.text }}</li>#}
+{#      {% endfor %}#}
+{#    </ol>#}
+
+{% endblock %}

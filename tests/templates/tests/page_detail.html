@@ -1,0 +1,27 @@
+{% extends "tests/test.html" %}
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+{% block page-content %}
+    <h2>Page: {{ page.description }}, index: {{ page_index }}</h2>
+
+    <ol>
+        {% for question in page.questions.all %}
+            <li>
+                <div>
+                    <div>{{ question.text }}</div>
+                    <ol>
+                        {% for answer in question.answer.all %}
+                            <li>
+                                <span>
+                                    <input type="checkbox" name="choice{{question.id}}" id="choice{{answer.id}}"
+                                            value="{{ answer.id }}"/>
+                                    <label for="choice{{ answer.id }}">{{ answer.text }}</label><br/>
+                            </span>
+                            </li>
+                        {% endfor %}
+                    </ol>
+                </div>
+            </li>
+        {% endfor %}
+    </ol>
+
+{% endblock %}
